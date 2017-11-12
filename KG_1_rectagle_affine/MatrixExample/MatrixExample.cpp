@@ -1,5 +1,6 @@
 #include "Matrix.h"
 #include "AffineTransform.h"
+#include "Model2D.h"
 
 using namespace std;
 

@@ -26,5 +26,8 @@
     <ClInclude Include="AffineTransform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Model2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
