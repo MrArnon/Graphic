@@ -2,6 +2,7 @@
 #define MATRIX_H
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ template <typename Cell = double>
 class Matrix
 {
 private:
-	//int size;
+	int size;
 	int rows;
 	int cols;
 	Cell **cells;
@@ -21,6 +22,7 @@ public:
 	Matrix(const Matrix&);					// Конструктор копирования
 	Matrix(int,int);							// Конструктор нулевой матрицы
 	Matrix(int,int, Cell*);						// Конструктор матрицы из списка
+	Matrix(int, int, vector<double>);
 	~Matrix();								// Деструктор
 
 	Cell &operator()(int i, int j) { return cells[i-1][j-1]; }
@@ -36,6 +38,19 @@ public:
 };
 
 
+template <typename Cell>
+Matrix<Cell>::Matrix(int Rows, int Cols, vector<double> List)
+{
+	AllocateCells(Rows, Cols);
+	int r = 0;
+	for (int i = 0; i < rows; i++)
+		for (int j = 0; j < cols; j++)
+		{
+			cells[i][j] = List[r];
+			r++;
+			//list = list->next;
+		}
+}
 template <typename Cell>
 Matrix<Cell>::Matrix(const Matrix<Cell>& M)
 {
@@ -126,9 +141,20 @@ Matrix<Cell> Matrix<Cell>::operator*(const Matrix& M)
 
 	
 	Matrix<Cell> res(*this);
-	Matrix<Cell> S(rows,cols);
-	if (rows == M.rows && cols == M.cols)
+	//Matrix<Cell> S(rows,cols);
+	int minR, minC;
+	if (rows >= M.rows) minR = M.rows;
+	else minR = rows;
+
+	if (cols >= M.cols) minC = M.cols;
+	else minC = cols;
+
+	Matrix<Cell> S(minR, minC);
+
+	if (rows == M.cols && cols == M.rows)
+//	if(rows == M.cols)
 	{
+	
 		for (int i = 0; i<rows; i++)
 			for (int j = 0; j < cols; j++)
 			{
@@ -151,8 +177,8 @@ template <typename Cell>
 void Matrix<Cell>::AllocateCells(int Rows,int Cols)
 {
 	cells = new Cell*[Rows];
-	for (int i=0; i<Cols; i++)
-		cells[i] = new Cell[Rows];
+	for (int i=0; i<Rows; i++)
+		cells[i] = new Cell[Cols];
 	rows = Rows;
 	cols = Cols;
 }
@@ -160,7 +186,7 @@ void Matrix<Cell>::AllocateCells(int Rows,int Cols)
 template <typename Cell>
 void Matrix<Cell>::FreeCells()
 {
-	for (int i=0; i<cols; i++)
+	for (int i=0; i<rows; i++)
 		delete cells[i];
 	delete cells;
 	cols = 0;

@@ -48,7 +48,7 @@ Matrix<> Mapping(double x)
 		0, 1, 0,
 		0,0,1 };
 	return Matrix<>(3,3, M);
-}
+}*/
 Matrix<> Mapping(double x,double y)
 {
 	double M[9] = {
@@ -56,7 +56,7 @@ Matrix<> Mapping(double x,double y)
 		0, -1, 0,
 		0,0,1 };
 	return Matrix<>(3,3, M);
-}*/
+}
 // Здесь требуется реализовать функции, возвращающие матрицы базовых АП:
 // Identity() - тождественное АП;
 // Rotation(t) - поворот на угол t;
