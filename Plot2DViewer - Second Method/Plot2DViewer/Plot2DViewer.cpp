@@ -1,7 +1,12 @@
 #include <windows.h>
 #include <windowsx.h>
+#include <string>
+#include <string.h>
 #include "Data.h"
 #include "Scene2D.h"
+#include "Matrix.h"
+#include "AffineTransform.h"
+#include "Model2D.h"
 
 LRESULT _stdcall WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);						// прототип оконной процедуры
 int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)		// основная процедура
@@ -43,7 +48,9 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 // В основном модуле объявляется только одна глобальная переменная - создаётся объект класса Scene2D
 // Все дальнейшие действия осуществляются посредством обращения к методам, реализованным в этом классе
-Scene2D scene(X0,Y0,px,py);
+Scene2D scene(X0,Y0,px,py,"vertices.txt","edges.txt");
+//Model2D model;
+
 
 LRESULT _stdcall WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)		// оконная процедура принимает и обрабатывает все сообщения, отправленные окну
 {
@@ -55,8 +62,10 @@ LRESULT _stdcall WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)		// 
 			scene.Clear(dc);				// Вызов реализованного в классе Camera2D метода, отвечающего за очистку рабочей области окна hWnd
 			//scene.Plot(dc, Parabola);		// Вызов реализованного в классе Scene2D метода, отвечающего за отрисовку графика синусоиды
 			//scene.PolarPlot(dc,Butterfly, phimin,phimax );
-			scene.PolarParametricPlot(dc, Arch_Phi,Arch_R ,tmax,  tmin);
+			//scene.PolarParametricPlot(dc, Arch_Phi,Arch_R ,tmax,  tmin);
+			scene.Render(dc);
 			ReleaseDC(hWnd,dc);
+			
 			return DefWindowProc(hWnd,msg,wParam,lParam);
 		}
 
@@ -68,7 +77,39 @@ LRESULT _stdcall WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)		// 
 			InvalidateRect(hWnd,nullptr,false);
 			return 0;
 		}
+	case WM_KEYDOWN:
+	{
+		switch (wParam)
+		{
+		case VK_LEFT:
+		{
+			scene.model.Apply(Translation(-1, 0));
+			//sight.Move(-2, 0);
+			break;
+		}
+		case VK_RIGHT:
+		{
+			scene.model.Apply(Translation(1, 0));
+			//sight.Move(2, 0);
+			break;
+		}
+		case VK_UP:
+		{
+			scene.model.Apply(Translation(0, 1));
+			//sight.Move(0, -2);
+			break;
+		}case VK_DOWN:
+		{
+			scene.model.Apply(Translation(0, -1));
+			//sight.Move(0, 2);
+			break;
+		}
 
+
+		}
+		InvalidateRect(hWnd, nullptr, false);
+		return 0;
+	}
 	case WM_DESTROY:
 		{
 			PostQuitMessage(0);

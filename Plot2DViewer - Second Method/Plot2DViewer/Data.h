@@ -1,5 +1,6 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
+#include <math.h>
 
 double					// Исходные значения параметров X0, Y0, px, py
 	X0=200,
