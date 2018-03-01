@@ -1,0 +1,24 @@
+﻿  Plot2DViewer.cpp
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(13): warning C4244: return: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(17): warning C4244: return: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(67): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(69): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(80): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(81): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(83): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(84): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(85): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(87): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(88): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(104): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\camera2d.h(105): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\vector3d.h(40): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\scene3d.h(26): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\scene3d.h(27): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\scene3d.h(28): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\matrix.h(27): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\matrix.h(27): note: при компиляции функции-члена "<Нет данных>" класса класс <Нет данных>
+  e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\model3d.h(70): note: выполняется компиляция ссылки на экземпляр шаблон функции "void Matrix<int>::set(int,int,double)"
+  e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\model2d.h(12): note: выполняется компиляция ссылки на экземпляр шаблон класс "Matrix<int>"
+e:\labs\diman_kg_3\plot3dviewer - first method\plot2dviewer\affinetransform.h(175): warning C4715: Mapping: значение возвращается не при всех путях выполнения
+  Plot2DViewer.vcxproj -> E:\Labs\Diman_KG_3\Plot3DViewer - First Method\Debug\Plot2DViewer.exe
